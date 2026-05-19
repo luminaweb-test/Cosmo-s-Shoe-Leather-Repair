@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cosmo's Shoe & Leather Repair | North Syracuse, NY</title>
+    <meta
+      name="description"
+      content="Premium single-page website for Cosmo's Shoe & Leather Repair, an artisanal shoe, boot, and leather repair shop in North Syracuse, NY."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              espresso: "#2b170f",
+              roast: "#4b2c1d",
+              saddle: "#9b6338",
+              tan: "#c9945c",
+              cream: "#f6efe2",
+              porcelain: "#fffaf0",
+              gold: "#d7aa55",
+              ink: "#211812"
+            },
+            fontFamily: {
+              display: ["Cormorant Garamond", "serif"],
+              body: ["Manrope", "sans-serif"]
+            },
+            boxShadow: {
+              molten: "0 30px 90px rgba(43, 23, 15, .22)",
+              lift: "0 22px 60px rgba(43, 23, 15, .16)"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 20% 8%, rgba(215, 170, 85, .14), transparent 28rem),
+          linear-gradient(180deg, #fffaf0 0%, #f6efe2 46%, #ead9c2 100%);
+        color: #211812;
+        letter-spacing: 0;
+      }
+
+      .grain {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        opacity: .12;
+        mix-blend-mode: multiply;
+        background-image:
+          linear-gradient(115deg, rgba(255,255,255,.11), transparent 18%, rgba(0,0,0,.08) 32%, transparent 48%),
+          repeating-radial-gradient(circle at 10% 20%, rgba(43,23,15,.35) 0 1px, transparent 1px 5px);
+      }
+
+      .hero-texture {
+        background-image:
+          linear-gradient(90deg, rgba(43, 23, 15, .9), rgba(43, 23, 15, .62) 45%, rgba(43, 23, 15, .2)),
+          url("assets/leather-stitch-texture.png");
+        background-size: cover;
+        background-position: center;
+        transform: translate3d(var(--mx, 0), var(--my, 0), 0) scale(1.04);
+        transition: transform 700ms var(--ease-out-expo);
+      }
+
+      .gold-rule {
+        background: linear-gradient(90deg, transparent, rgba(215,170,85,.82), transparent);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 900ms var(--ease-out-expo), transform 900ms var(--ease-out-expo);
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .magnetic {
+        transform: translate3d(var(--tx, 0), var(--ty, 0), 0);
+        transition: transform 360ms var(--ease-out-expo), box-shadow 360ms var(--ease-out-expo), background 360ms var(--ease-out-expo);
+      }
+
+      .service-card {
+        background:
+          linear-gradient(145deg, rgba(255, 250, 240, .98), rgba(246, 239, 226, .78)),
+          radial-gradient(circle at top right, rgba(215, 170, 85, .2), transparent 19rem);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba(155, 99, 56, .2);
+        border-radius: 1rem;
+        pointer-events: none;
+      }
+
+      .map-frame {
+        background:
+          linear-gradient(135deg, rgba(43, 23, 15, .88), rgba(75, 44, 29, .68)),
+          url("assets/leather-stitch-texture.png");
+        background-size: cover;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-body antialiased">
+    <div class="grain"></div>
+
+    <header class="fixed inset-x-0 top-0 z-50 px-4 py-4">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-cream/20 bg-espresso/75 px-5 py-3 text-cream shadow-molten backdrop-blur-md">
+        <a href="#top" class="flex items-center gap-3" aria-label="Cosmo's Shoe and Leather Repair home">
+          <span class="grid h-10 w-10 place-items-center rounded-full border border-gold/45 bg-gold/15 font-display text-xl font-bold text-gold">C</span>
+          <span class="hidden text-sm font-semibold uppercase sm:block">Cosmo's Shoe & Leather Repair</span>
+        </a>
+        <div class="hidden items-center gap-7 text-sm font-semibold text-cream/78 md:flex">
+          <a class="transition hover:text-gold" href="#about">Reputation</a>
+          <a class="transition hover:text-gold" href="#services">Services</a>
+          <a class="transition hover:text-gold" href="#reviews">Reviews</a>
+          <a class="transition hover:text-gold" href="#hours">Hours</a>
+        </div>
+        <a href="tel:3154581982" class="magnetic rounded-full bg-cream px-4 py-2 text-sm font-bold text-espresso hover:bg-gold">
+          Call
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="relative min-h-screen overflow-hidden bg-espresso pt-28 text-cream">
+        <div class="hero-texture absolute inset-0"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_26%,rgba(215,170,85,.26),transparent_24rem)]"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-cream to-transparent"></div>
+
+        <div class="relative z-10 mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 px-5 pb-20 lg:grid-cols-[1.04fr_.7fr]">
+          <div class="max-w-4xl">
+            <div class="reveal mb-8 inline-flex items-center gap-3 rounded-full border border-gold/35 bg-cream/10 px-4 py-2 text-sm font-semibold text-cream/86 backdrop-blur">
+              <span class="h-2 w-2 rounded-full bg-gold"></span>
+              North Syracuse artisan repair, Brewerton Road
+            </div>
+            <h1 class="reveal font-display text-6xl font-bold leading-[.92] text-porcelain sm:text-7xl lg:text-8xl">
+              Expert Craftsmanship. Restored for a Lifetime.
+            </h1>
+            <p class="reveal mt-7 max-w-2xl text-lg leading-8 text-cream/82 sm:text-xl">
+              Local, specialized repair for shoes, boots, and luxury leather goods, handled with the patience and honesty only a true craft shop can offer.
+            </p>
+            <div class="reveal mt-10 flex flex-col gap-4 sm:flex-row">
+              <a href="#services" class="magnetic group inline-flex items-center justify-center rounded-full bg-gold px-7 py-4 text-sm font-extrabold uppercase text-espresso shadow-lift hover:bg-cream">
+                View Services / Check Hours
+                <span class="ml-3 transition group-hover:translate-x-1">→</span>
+              </a>
+              <a href="#location" class="magnetic inline-flex items-center justify-center rounded-full border border-cream/35 px-7 py-4 text-sm font-bold uppercase text-cream hover:border-gold hover:text-gold">
+                Find the Shop
+              </a>
+            </div>
+          </div>
+
+          <aside class="reveal relative">
+            <div class="relative overflow-hidden rounded-[1.6rem] border border-cream/18 bg-cream/10 p-5 shadow-molten backdrop-blur-sm">
+              <div class="gold-rule mb-5 h-px"></div>
+              <p class="font-display text-3xl font-semibold text-porcelain">“Repair when it serves the customer. Replace only when it must be replaced.”</p>
+              <div class="mt-8 grid grid-cols-3 gap-3 text-center">
+                <div class="rounded-2xl bg-cream/12 p-4">
+                  <div class="font-display text-3xl font-bold text-gold">4.7</div>
+                  <div class="mt-1 text-xs uppercase text-cream/68">Stars</div>
+                </div>
+                <div class="rounded-2xl bg-cream/12 p-4">
+                  <div class="font-display text-3xl font-bold text-gold">77+</div>
+                  <div class="mt-1 text-xs uppercase text-cream/68">Reviews</div>
+                </div>
+                <div class="rounded-2xl bg-cream/12 p-4">
+                  <div class="font-display text-3xl font-bold text-gold">5 PM</div>
+                  <div class="mt-1 text-xs uppercase text-cream/68">Evening Hours</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="relative bg-cream py-24 sm:py-32">
+        <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.88fr_1fr]">
+          <div class="reveal">
+            <p class="mb-4 text-sm font-extrabold uppercase text-saddle">Reputation built one pair at a time</p>
+            <h2 class="font-display text-5xl font-bold leading-tight text-espresso sm:text-6xl">
+              A small shop with a big standard for doing right by people.
+            </h2>
+          </div>
+          <div class="reveal grid gap-5 sm:grid-cols-2">
+            <article class="rounded-3xl border border-roast/10 bg-porcelain p-7 shadow-lift">
+              <div class="mb-6 flex text-xl text-gold" aria-label="4.7 stars">★★★★★</div>
+              <h3 class="font-display text-3xl font-semibold text-espresso">Trusted locally</h3>
+              <p class="mt-4 leading-7 text-ink/72">
+                A 4.7-star reputation with 77+ reviews signals steady community trust, repeat customers, and careful work on pieces people actually care about.
+              </p>
+            </article>
+            <article class="rounded-3xl border border-roast/10 bg-porcelain p-7 shadow-lift">
+              <div class="mb-6 grid h-12 w-12 place-items-center rounded-full bg-gold/18 text-2xl text-saddle">✓</div>
+              <h3 class="font-display text-3xl font-semibold text-espresso">Customer-first repairs</h3>
+              <p class="mt-4 leading-7 text-ink/72">
+                The philosophy is practical and honest: preserve the original when possible, avoid needless replacements, and save customers money when the repair allows it.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="location" class="bg-porcelain py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-5">
+          <div class="reveal mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p class="mb-4 text-sm font-extrabold uppercase text-saddle">About & location</p>
+              <h2 class="font-display text-5xl font-bold text-espresso sm:text-6xl">Easy to find on Brewerton Road.</h2>
+            </div>
+            <p class="max-w-xl text-lg leading-8 text-ink/70">
+              Located across from CopperTop, with evening hours designed for after-work drop-offs and pickups.
+            </p>
+          </div>
+          <div class="reveal grid overflow-hidden rounded-[2rem] border border-roast/10 bg-cream shadow-molten lg:grid-cols-[.78fr_1fr]">
+            <div class="map-frame p-8 text-cream sm:p-10">
+              <p class="text-sm font-extrabold uppercase text-gold">Visit</p>
+              <h3 class="mt-4 font-display text-4xl font-semibold">Cosmo's Shoe & Leather Repair</h3>
+              <p class="mt-5 text-lg leading-8 text-cream/78">904 Brewerton Road, North Syracuse, NY 13212</p>
+              <p class="mt-3 text-cream/72">Across from CopperTop</p>
+              <a
+                class="magnetic mt-9 inline-flex rounded-full bg-cream px-6 py-3 text-sm font-extrabold uppercase text-espresso hover:bg-gold"
+                href="https://www.google.com/maps/search/?api=1&query=Cosmo%27s%20Shoe%20%26%20Leather%20Repair%20904%20Brewerton%20Rd%20North%20Syracuse%20NY"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open Directions
+              </a>
+            </div>
+            <div class="relative min-h-[420px]">
+              <iframe
+                title="Map to Cosmo's Shoe and Leather Repair"
+                class="absolute inset-0 h-full w-full"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=904%20Brewerton%20Rd%20North%20Syracuse%20NY%2013212&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="bg-espresso py-24 text-cream sm:py-32">
+        <div class="mx-auto max-w-7xl px-5">
+          <div class="reveal mx-auto mb-14 max-w-3xl text-center">
+            <p class="mb-4 text-sm font-extrabold uppercase text-gold">Core services</p>
+            <h2 class="font-display text-5xl font-bold sm:text-6xl">Restoration for pieces worth keeping.</h2>
+            <p class="mt-5 text-lg leading-8 text-cream/72">
+              Swipe on mobile or hover on desktop to see each craft specialty come forward.
+            </p>
+          </div>
+
+          <div class="grid snap-x snap-mandatory grid-flow-col gap-5 overflow-x-auto pb-6 md:grid-flow-row md:grid-cols-3 md:overflow-visible">
+            <article class="service-card reveal relative min-h-[430px] w-[84vw] snap-center overflow-hidden rounded-[1.5rem] p-8 text-espresso shadow-lift transition duration-500 hover:-translate-y-3 hover:shadow-molten md:w-auto">
+              <div class="mb-16 flex h-16 w-16 items-center justify-center rounded-full bg-espresso text-3xl text-gold">⌁</div>
+              <h3 class="font-display text-4xl font-bold">Boot & Shoe Repair</h3>
+              <p class="mt-5 leading-7 text-ink/72">Heel and toe caps, full resoling, sole guards, conditioning, and structural fixes for daily wear or cherished favorites.</p>
+              <div class="mt-8 h-2 w-24 rounded-full bg-gold"></div>
+            </article>
+
+            <article class="service-card reveal relative min-h-[430px] w-[84vw] snap-center overflow-hidden rounded-[1.5rem] p-8 text-espresso shadow-lift transition duration-500 hover:-translate-y-3 hover:shadow-molten md:w-auto">
+              <div class="mb-16 flex h-16 w-16 items-center justify-center rounded-full bg-espresso text-3xl text-gold">◆</div>
+              <h3 class="font-display text-4xl font-bold">Luxury Designer Restoration</h3>
+              <p class="mt-5 leading-7 text-ink/72">Preventative sole attachments and discreet protection for high-end designer footwear before damage becomes permanent.</p>
+              <div class="mt-8 h-2 w-24 rounded-full bg-gold"></div>
+            </article>
+
+            <article class="service-card reveal relative min-h-[430px] w-[84vw] snap-center overflow-hidden rounded-[1.5rem] p-8 text-espresso shadow-lift transition duration-500 hover:-translate-y-3 hover:shadow-molten md:w-auto">
+              <div class="mb-16 flex h-16 w-16 items-center justify-center rounded-full bg-espresso text-3xl text-gold">✦</div>
+              <h3 class="font-display text-4xl font-bold">Hardware & Stitching</h3>
+              <p class="mt-5 leading-7 text-ink/72">Zipper repairs, purse strap stitching, detailing, seam reinforcement, and leather-good fixes that need a patient hand.</p>
+              <div class="mt-8 h-2 w-24 rounded-full bg-gold"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="bg-cream py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-5">
+          <div class="reveal mb-12 max-w-3xl">
+            <p class="mb-4 text-sm font-extrabold uppercase text-saddle">Customer testimonials</p>
+            <h2 class="font-display text-5xl font-bold text-espresso sm:text-6xl">The kind of repair people come back for.</h2>
+          </div>
+          <div class="grid gap-5 lg:grid-cols-3">
+            <figure class="reveal rounded-[1.5rem] border border-roast/10 bg-porcelain p-8 shadow-lift">
+              <div class="mb-7 text-gold">★★★★★</div>
+              <blockquote class="font-display text-3xl leading-tight text-espresso">“Entrusted several high-end designer shoes... Highly satisfied and will return for more work.”</blockquote>
+            </figure>
+            <figure class="reveal rounded-[1.5rem] border border-roast/10 bg-porcelain p-8 shadow-lift">
+              <div class="mb-7 text-gold">★★★★★</div>
+              <blockquote class="font-display text-3xl leading-tight text-espresso">“My shoes were finished quickly and to perfect condition. Great work and great price.”</blockquote>
+            </figure>
+            <figure class="reveal rounded-[1.5rem] border border-roast/10 bg-porcelain p-8 shadow-lift">
+              <div class="mb-7 text-gold">★★★★★</div>
+              <blockquote class="font-display text-3xl leading-tight text-espresso">“Owner is fantastic!... offered to save me money by repairing instead of replacing. Great service.”</blockquote>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="hours" class="relative overflow-hidden bg-porcelain py-24 sm:py-32">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+        <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[1fr_.86fr]">
+          <div class="reveal">
+            <p class="mb-4 text-sm font-extrabold uppercase text-saddle">Hours & contact</p>
+            <h2 class="font-display text-5xl font-bold text-espresso sm:text-6xl">Evening repair hours for real life schedules.</h2>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-ink/70">
+              Drop in after work, bring the pair you thought was finished, and ask what can be preserved before replacing it.
+            </p>
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a class="magnetic rounded-full bg-espresso px-6 py-3 text-sm font-extrabold uppercase text-cream hover:bg-saddle" href="tel:3154581982">Call (315) 458-1982</a>
+              <a class="magnetic rounded-full border border-roast/20 px-6 py-3 text-sm font-extrabold uppercase text-espresso hover:border-gold hover:text-saddle" href="#location">Map</a>
+            </div>
+          </div>
+          <div class="reveal rounded-[1.5rem] bg-espresso p-7 text-cream shadow-molten">
+            <div class="grid gap-3">
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Monday</span><strong>5 PM - 7 PM</strong></div>
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Tuesday</span><strong>5 PM - 7 PM</strong></div>
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Wednesday</span><strong>5 PM - 7 PM</strong></div>
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Thursday</span><strong>5 PM - 7 PM</strong></div>
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Friday</span><strong>Closed</strong></div>
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Saturday</span><strong>10 AM - 2 PM</strong></div>
+              <div class="flex items-center justify-between rounded-2xl bg-cream/10 p-4"><span>Sunday</span><strong>Closed</strong></div>
+            </div>
+            <p class="mt-5 text-sm leading-6 text-cream/62">Hours are shown from public directory listings and should be confirmed before a special trip.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-espresso px-5 py-10 text-cream">
+      <div class="mx-auto flex max-w-7xl flex-col justify-between gap-6 border-t border-cream/15 pt-8 md:flex-row md:items-center">
+        <div>
+          <p class="font-display text-3xl font-semibold">Cosmo's Shoe & Leather Repair</p>
+          <p class="mt-2 text-sm text-cream/64">North Syracuse, NY. Artisanal shoe, boot, and leather repair.</p>
+        </div>
+        <div class="flex flex-wrap gap-4 text-sm font-semibold text-cream/72">
+          <a class="hover:text-gold" href="#services">Services</a>
+          <a class="hover:text-gold" href="#location">Location</a>
+          <a class="hover:text-gold" href="#hours">Hours</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const hero = document.querySelector(".hero-texture");
+      window.addEventListener("pointermove", (event) => {
+        const x = (event.clientX / window.innerWidth - 0.5) * -18;
+        const y = (event.clientY / window.innerHeight - 0.5) * -14;
+        hero?.style.setProperty("--mx", `${x}px`);
+        hero?.style.setProperty("--my", `${y}px`);
+      });
+
+      document.querySelectorAll(".magnetic").forEach((el) => {
+        el.addEventListener("pointermove", (event) => {
+          const rect = el.getBoundingClientRect();
+          const x = (event.clientX - rect.left - rect.width / 2) * 0.14;
+          const y = (event.clientY - rect.top - rect.height / 2) * 0.18;
+          el.style.setProperty("--tx", `${x}px`);
+          el.style.setProperty("--ty", `${y}px`);
+        });
+        el.addEventListener("pointerleave", () => {
+          el.style.setProperty("--tx", "0px");
+          el.style.setProperty("--ty", "0px");
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index % 4, 3) * 90}ms`;
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
